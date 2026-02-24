@@ -1,0 +1,196 @@
+:root {
+  /* Colors */
+  --green-500: hsl(158, 36%, 37%);
+  --green-700: hsl(158, 42%, 18%);
+  --black: hsl(212, 21%, 14%);
+  --grey: hsl(228, 12%, 48%);
+  --cream: hsl(30, 38%, 92%);
+  --white: hsl(0, 0%, 100%);
+
+  /* Fonts */
+  --font-sans: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    sans-serif;
+  --font-serif: "Fraunces", serif;
+
+  /* Layout */
+  --page-max: 23.438rem;
+  --card-radius: 0.75rem;
+
+  /* Spacing */
+  --content-pad: 1.5rem;
+  --content-gap: 0.75rem;
+
+  /* Image */
+  --img-height: 15rem;
+  --img-fit: cover;
+
+  /* Typography */
+  --category-size: 0.75rem;
+  --category-tracking: 0.4em;
+
+  --title-size: 1.75rem;
+  --title-line: 1.1;
+
+  --body-size: 0.875rem;
+  --body-line: 1.6;
+
+  --price-size: 1.75rem;
+  --old-price-size: 0.8125rem;
+
+  /* Button */
+  --btn-radius: 0.625rem;
+  --btn-pad-y: 0.875rem;
+  --btn-pad-x: 1rem;
+
+  /* Attribution */
+  --attr-size: 0.7rem;
+  --attr-margin-top: 1rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--cream);
+  color: var(--black);
+  font-family: var(--font-sans);
+  padding: 1.75rem 0.1rem;
+}
+
+.page {
+  width: min(92%, var(--page-max));
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.card__media {
+  display: block;
+}
+
+.card__img {
+  display: block;
+  width: 100%;
+  height: var(--img-height);
+  object-fit: var(--img-fit);
+}
+
+.card__content {
+  padding: var(--content-pad);
+  display: grid;
+  gap: var(--content-gap);
+}
+
+.card__category {
+  margin: 0;
+  color: var(--grey);
+  letter-spacing: var(--category-tracking);
+  text-transform: uppercase;
+  font-size: var(--category-size);
+}
+
+.card__title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--title-size);
+  line-height: var(--title-line);
+}
+
+.card__desc {
+  margin: 0;
+  color: var(--grey);
+  font-size: var(--body-size);
+  line-height: var(--body-line);
+}
+
+.card__price {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.125rem;
+}
+
+.card__price-current {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--price-size);
+  color: var(--green-500);
+}
+
+.card__price-old {
+  margin: 0;
+  color: var(--grey);
+  font-size: var(--old-price-size);
+}
+
+.btn {
+  border: 0;
+  border-radius: var(--btn-radius);
+  padding: var(--btn-pad-y) var(--btn-pad-x);
+  background: var(--green-500);
+  color: var(--white);
+  font: inherit;
+  font-weight: 700;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  cursor: pointer;
+  transition: background-color 160ms ease, transform 120ms ease;
+  margin-top: 0.25rem;
+}
+
+.btn:hover {
+  background: var(--green-700);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--green-500), white 35%);
+  outline-offset: 3px;
+}
+
+.attribution {
+  font-size: var(--attr-size);
+  text-align: center;
+  margin-top: var(--attr-margin-top);
+  color: var(--grey);
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* Desktop layout */
+@media (min-width: 600px) {
+  :root {
+    --page-max: 38.75rem;
+    --content-pad: 2rem;
+    --content-gap: 1.125rem;
+
+    --img-height: 100%;
+    --title-size: 2rem;
+    --title-line: 1;
+
+    --price-size: 2rem;
+  }
+
+  .card {
+    grid-template-columns: 1fr 1fr;
+  }
+}
